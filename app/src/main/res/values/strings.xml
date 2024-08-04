@@ -1,0 +1,128 @@
+<resources>
+    <string name="app_name">try</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="navigation_drawer_open">open</string>
+    <string name="navigation_drawer_close">close</string>
+
+    <string name="Afghanistan">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/AFG.png?2</string>
+    <string name="Argentina">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/ARG.png?2</string>
+    <string name="Australia">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/AUS.png?2</string>
+    <string name="Austria">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/AUT.png?2</string>
+    <string name="Bahamas">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/BAH.png?2</string>
+    <string name="Bahrain">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/BRN.png?2</string>
+    <string name="Bangladesh">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/BAN.png?2</string>
+    <string name="Belgium">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/BEL.png?2</string>
+    <string name="Belize">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/BIZ.png?2</string>
+    <string name="Bermuda">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/BRM.png?2</string>
+    <string name="Bhutan">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/BHU.png?2</string>
+    <string name="Botswana">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/BOT.png?2</string>
+    <string name="Cameroon">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/CMR.png?2</string>
+    <string name="Canada">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/CAN.png?2</string>
+    <string name="CaymanIslands">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/CAY.png?2</string>
+    <string name="CzechRepublic">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/CZE.png?2</string>
+    <string name="Denmark">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/DEN.png?2</string>
+    <string name="England">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/ENG.png?2</string>
+    <string name="Eswatini">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/SWA.png?2</string>
+    <string name="Finland">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/FIN.png?2</string>
+    <string name="France">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/FRA.png?2</string>
+    <string name="Germany">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/GER.png?2</string>
+    <string name="Ghana">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/GHA.png?2</string>
+    <string name="Gibraltar">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/GIB.png?2</string>
+    <string name="HongKong">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/HK.png?2</string>
+    <string name="Hungary">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/HUN.png?2</string>
+    <string name="India">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/IND.png?2</string>
+    <string name="Iran">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/IRI.png?2</string>
+    <string name="Ireland">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/IRE.png?2</string>
+    <string name="IsleofMan">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/IOM.png?2</string>
+    <string name="Israel">https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_160,q_50/lsci/db/PICTURES/CMS/382600/382658.png</string>
+    <string name="Italy">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/ITA-W.png?2</string>
+    <string name="Jersey">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/JSY.png?2</string>
+    <string name="Kenya">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/KEN.png?2</string>
+    <string name="Kuwait">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/KUW.png?2</string>
+    <string name="Lesotho">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/LES.png?2</string>
+    <string name="Luxembourg">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/LUX.png?2</string>
+    <string name="Malawi">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/MAW.png?2</string>
+    <string name="Malaysia">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/MAS.png?2</string>
+    <string name="Maldives">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/MDV.png?2</string>
+    <string name="Malta">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/MAL.png?2</string>
+    <string name="Mozambique">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/MOZ.png?2</string>
+    <string name="Namibia">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/NAM.png?2</string>
+    <string name="Nepal">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/NEP.png?2</string>
+    <string name="Netherla">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/NED.png?2</string>
+    <string name="Netherlands">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/ND-W.png?2</string>
+    <string name="NewZealand">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/NZ.png?2</string>
+    <string name="Nigeria">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/NGR.png?2</string>
+    <string name="Norway">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/NOR.png?2</string>
+    <string name="Oman">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/OMA.png?2</string>
+    <string name="Pakistan">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/PAK.png?2</string>
+    <string name="Panamas">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/PAN.png?2</string>
+    <string name="PapuaNewGuinea">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/PNG.png?2</string>
+    <string name="Philippines">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/PHI.png?2</string>
+    <string name="Portugal">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/POR.png?2</string>
+    <string name="Qatar">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/QAT.png?2</string>
+    <string name="Romania">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/ROM.png?2</string>
+    <string name="Rwanda">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/RWA.png?2</string>
+    <string name="Samoa">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/SAM.png?2</string>
+    <string name="SaudiArabia">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/SDA.png?2</string>
+    <string name="Scotland">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/SCO.png?2</string>
+    <string name="Seychelles">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/SEY.png?2</string>
+    <string name="SierraLeone">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/SRL.png?2</string>
+    <string name="Singapore">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/SIN.png?2</string>
+    <string name="SouthAfrica">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/SA.png?2</string>
+    <string name="Spain">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/ESP.png?2</string>
+    <string name="SriLanka">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/SL.png?2</string>
+    <string name="Sweden">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/SWE.png?2</string>
+    <string name="Switzerland">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/CHE.png?2</string>
+    <string name="Tanzania">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/TAN.png?2</string>
+    <string name="Thailand">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/THA.png?2</string>
+    <string name="Turkey">https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_160,q_50/lsci/db/PICTURES/CMS/313200/313218.logo.png</string>
+    <string name="Uganda">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/UGA.png?2</string>
+    <string name="UnitedArabEmirates">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/USE.png?2</string>
+    <string name="UnitedStates">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/USA.png?2</string>
+    <string name="Vanuatu">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/VAN.png?2</string>
+    <string name="WestIndies">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/WI.png?2</string>
+    <string name="Zimbabwe">https://www.hindustantimes.com/static-content/1y/cricket-logos/teams/ZIM.png?2</string>
+
+    <!--    ApiKeys Start  -->
+
+    <string name="apiKey2">a6944d57e9mshc8c9235b339cbefp1c77abjsn8c3215551da3</string>
+    <string name="apiKey">97d541bfc7msh5d89673da1900c1p16fc83jsn6280aae14c4b</string>
+    <!--        <string name="apiKey2">37c6e5cca6msh60a9a2752d57f87p107407jsn6b7549f1cc88</string>-->
+    <!--        <string name="apiKey2">37c6e5cca6msh60a9a2752d57f87p107407jsn6b7549f1cc88</string>-->
+    <!--    <string name="apiKey">264f8e8760msh1272ebb011e2b11p10e4c0jsn074a1c3f339a</string>-->
+    <!--    <string name="apiKey2">60ad43d8b3mshcd41396c2221325p10e71fjsn3d2f38f2f386</string>-->
+
+    <!--    ApiKeys End    -->
+
+    <attr name="tabSelectedBackgroundColor" format="reference|color" />
+    <attr name="tabSelectedTextColor" format="reference|color" />
+    <attr name="tabTextColor" format="reference|color" />
+    <attr name="blawhi" format="reference|color" />
+    <attr name="home" format="reference|color" />
+    <attr name="aboutUs" format="reference|color" />
+    <attr name="setting" format="reference|color" />
+    <attr name="bg" format="reference|color" />
+    <attr name="nav_item_background" format="reference|color" />
+    <attr name="bgcolor" format="reference|color" />
+    <attr name="vs" format="reference|color" />
+    <attr name="matchTabSelectedTextColor" format="reference|color" />
+    <attr name="whibla" format="reference|color" />
+    <attr name="vslive" format="reference|color" />
+    <attr name="line" format="reference|color" />
+    <attr name="whigra" format="reference|color" />
+    <attr name="arrowDown" format="reference|color" />
+    <attr name="arrowUp" format="reference|color" />
+    <attr name="gradient" format="reference|color" />
+    <attr name="row_even" format="reference|color" />
+    <attr name="row_odd" format="reference|color" />
+    <attr name="main_white" format="reference|color" />
+
+
+    <string name="team_1">Team 1</string>
+    <string name="team_2">Team 2</string>
+    <string name="Scorecard_not_avaliable">Scorecard not avaliable</string>
+
+
+</resources>

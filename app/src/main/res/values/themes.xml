@@ -1,0 +1,51 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Try" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:statusBarColor">@color/main</item>
+
+        <item name="tabSelectedBackgroundColor">@drawable/tab_selected_back</item>
+        <item name="tabSelectedTextColor">@color/white</item>
+        <item name="bg">@color/main</item>
+        <item name="blawhi">@color/white</item>
+        <item name="aboutUs">@drawable/aboutus_light</item>
+        <item name="home">@drawable/home_light</item>
+        <item name="setting">@drawable/setting</item>
+        <item name="nav_item_background">@drawable/nav_item_background</item>
+        <item name="bgcolor">@drawable/border</item>
+        <item name="vs">@drawable/vs_light</item>
+        <item name="matchTabSelectedTextColor">@color/black</item>
+        <item name="whibla">@color/white</item>
+        <item name="vslive">@drawable/vs_light</item>
+        <item name="line">@color/black</item>
+        <item name="whigra">@color/white</item>
+        <item name="arrowDown">@drawable/down</item>
+        <item name="arrowUp">@drawable/up</item>
+        <item name="row_even">#eeeff2</item>
+        <item name="row_odd">@color/white</item>
+        <item name="gradient">@drawable/gradient</item>
+        <item name="main_white">@color/main</item>
+
+
+
+        <item name="android:textColor">@color/black</item>
+
+
+
+
+
+    </style>
+
+    <style name="TabTextAppearanceSelected" parent="">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="Theme.Try" parent="Base.Theme.Try" />
+
+    <style name="CustomTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
