@@ -118,6 +118,8 @@
     <attr name="row_even" format="reference|color" />
     <attr name="row_odd" format="reference|color" />
     <attr name="main_white" format="reference|color" />
+    <attr name="rate" format="reference|color" />
+    <attr name="rateus_bg" format="reference|color" />
 
 
     <string name="team_1">Team 1</string>

@@ -5,8 +5,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
@@ -100,16 +99,14 @@
         android:id="@+id/navigation_view"
         android:layout_width="90dp"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-      >
+        android:layout_gravity="start">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="12dp"
-            android:background="?attr/blawhi"
-            >
+            android:background="?attr/blawhi">
 
             <LinearLayout
                 android:gravity="start"
@@ -126,7 +123,6 @@
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/profile_image"
-
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginTop="20dp"
@@ -163,7 +159,6 @@
                         android:layout_marginTop="16dp"
                         android:src="?attr/aboutUs"/>
 
-
                     <ImageView
                         android:id="@+id/nav_item_settings"
                         android:background="@drawable/nav_item_background"
@@ -172,6 +167,15 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
                         android:src="?attr/setting" />
+
+                    <ImageView
+                        android:id="@+id/nav_item_rate_us"
+                        android:background="@drawable/nav_item_background"
+                        android:padding="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:src="?attr/rate" />
                 </LinearLayout>
 
                 <LinearLayout

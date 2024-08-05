@@ -1,27 +1,34 @@
 package com.example.atry
 
-import android.content.Intent
+import android.animation.Animator
+import android.animation.ObjectAnimator
+import android.app.AlertDialog
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.TypedValue
+import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.RatingBar
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.core.view.GravityCompat
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
-import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
-import de.hdodenhof.circleimageview.CircleImageView
 import eightbitlab.com.blurview.BlurView
 import eightbitlab.com.blurview.RenderScriptBlur
+
 
 class MainActivity : AppCompatActivity(){
 
@@ -59,6 +66,11 @@ class MainActivity : AppCompatActivity(){
         // Set toolbar title
         val toolbarTitle = findViewById<TextView>(R.id.toolbar_title)
         toolbarTitle.text = "CrickLive"
+
+        val nav_item_rate_us = findViewById<ImageView>(R.id.nav_item_rate_us)
+        nav_item_rate_us.setOnClickListener(){
+            showRateUsDialog()
+        }
 
 
     }
@@ -185,6 +197,76 @@ class MainActivity : AppCompatActivity(){
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
         }
+    }
+
+    private fun showRateUsDialog() {
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.rate_us_dialog, null)
+        val ratingBar: RatingBar = dialogView.findViewById(R.id.rating_bar)
+        val submitButton: Button = dialogView.findViewById(R.id.submit_button)
+        val emoji: ImageView = dialogView.findViewById(R.id.emoji)
+        emoji.visibility = View.GONE
+        val current: Float = ratingBar.getRating()
+
+        val anim = ObjectAnimator.ofFloat(ratingBar, "rating", current, 5f)
+        anim.setDuration(1000)
+        anim.addListener(object : Animator.AnimatorListener {
+            override fun onAnimationStart(animation: Animator) {
+
+            }
+
+            override fun onAnimationEnd(animation: Animator) {
+                ratingBar.rating = 0f // Reset the rating to 1
+
+            }
+
+            override fun onAnimationCancel(animation: Animator) {
+                // No action needed here
+            }
+
+            override fun onAnimationRepeat(animation: Animator) {
+                // No action needed here
+            }
+        })
+
+        anim.start()
+
+
+        val dialog = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .create()
+
+        Handler(Looper.getMainLooper()).postDelayed({
+
+            ratingBar.rating = 0f
+
+            ratingBar.setOnRatingBarChangeListener { _, rating, _ ->
+                val emojiRes = when (rating.toInt()) {
+                    1 -> R.drawable.star1
+                    2 -> R.drawable.star2
+                    3 -> R.drawable.star3
+                    4 -> R.drawable.star4
+                    5 -> R.drawable.star5
+                    else -> null
+                }
+                if (emojiRes != null) {
+                    emoji.visibility = View.VISIBLE
+                    emoji.setImageResource(emojiRes)
+                } else {
+                    emoji.visibility = View.GONE
+                }
+
+            }
+        }, 2000)
+
+
+
+        submitButton.setOnClickListener {
+            val rating = ratingBar.rating
+            // Handle the rating and feedback submission, e.g., save to database or send to server
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 
 

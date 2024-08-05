@@ -28,7 +28,7 @@ class Wct20 : Fragment() {
 
         val view = inflater.inflate(R.layout.wct20, container, false)
         val apiKey = requireContext().getString(R.string.apiKey)
-        val url = "https://cricbuzz-cricket.p.rapidapi.com/matches/v1/live"
+        val url = "https://cricbuzz-cricket.p.rapidapi.com/matches/v1/recent"
         val rec: RecyclerView = view.findViewById(R.id.rec)
         val progressBar: ProgressBar = view.findViewById(R.id.progressBar)
         progressBar.visibility = View.VISIBLE

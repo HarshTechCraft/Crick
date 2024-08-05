@@ -26,6 +26,9 @@
         <item name="row_odd">@color/gray</item>
         <item name="gradient">@drawable/gradient2</item>
         <item name="main_white">@color/white</item>
+        <item name="rate">@drawable/rate_dark</item>
+        <item name="rateus_bg">@drawable/rateus_bg</item>
+
 
 
         <item name="android:textColor">@color/white</item>

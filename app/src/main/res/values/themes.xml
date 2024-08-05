@@ -26,6 +26,8 @@
         <item name="row_odd">@color/white</item>
         <item name="gradient">@drawable/gradient</item>
         <item name="main_white">@color/main</item>
+        <item name="rate">@drawable/rate_light</item>
+        <item name="rateus_bg">@drawable/rateus_bg</item>
 
 
 
