@@ -7,10 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
-import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
-import androidx.core.app.NotificationCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -37,7 +35,7 @@ class KeyMoments : Fragment() {
         val recyclerView1 = view.findViewById<RecyclerView>(R.id.rec)
         val recyclerView2 = view.findViewById<RecyclerView>(R.id.rec2)
         val card = view.findViewById<CardView>(R.id.card)
-        val not_available = view.findViewById<ImageView>(R.id.not_available)
+        val notAvailable = view.findViewById<ImageView>(R.id.not_available)
         val state = arguments?.getString("state")
 
 
@@ -69,12 +67,11 @@ class KeyMoments : Fragment() {
 
         progressBar.visibility = View.VISIBLE
         val team1Score = bundle?.getString("team1Score")
-        val started = bundle?.getBoolean("started")
         Log.d("ekvar","$state $team1Score")
         if (state == "") {
             progressBar.visibility = View.GONE
             card.visibility = View.GONE
-            not_available.visibility = View.VISIBLE
+            notAvailable.visibility = View.VISIBLE
         } else {
             val apikey2 = "37c6e5cca6msh60a9a2752d57f87p107407jsn6b7549f1cc88"
             val matchId = bundle?.getString("matchId")
@@ -127,7 +124,7 @@ class KeyMoments : Fragment() {
     private fun handleResponse(response: JSONObject, recyclerView: RecyclerView, onComplete: (() -> Unit)?) {
         try {
             val commentaryLines = response.getJSONArray("commentaryLines")
-            val highlights = ArrayList<Data_km>()
+            val highlights = ArrayList<DataKm>()
             for (i in 0 until commentaryLines.length()) {
                 val commentaryLine = commentaryLines.getJSONObject(i)
                 val commentary = commentaryLine.getJSONObject("commentary")
@@ -150,11 +147,11 @@ class KeyMoments : Fragment() {
                     }
                 }
                 val filteredEventType = eventType.split(",").last().trim()
-                highlights.add(Data_km(commtxt, filteredEventType, overNum))
+                highlights.add(DataKm(commtxt, filteredEventType, overNum))
                 Log.d("KeyMoments", "OverNum: $overNum, EventType: $filteredEventType, CommText: $commtxt")
             }
             val context = requireContext()
-            val adapter = Adapter_km(context, highlights)
+            val adapter = AdapterKm(context, highlights)
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
             recyclerView.adapter = adapter
             onComplete?.invoke()

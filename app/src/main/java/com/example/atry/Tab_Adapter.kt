@@ -11,7 +11,7 @@ class Tab_Adapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> Wct20()
+            0 -> Recent()
             1 -> Upcoming()
             else -> News()
         }

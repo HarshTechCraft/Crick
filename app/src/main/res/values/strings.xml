@@ -87,12 +87,12 @@
 
     <!--    ApiKeys Start  -->
 
-    <string name="apiKey2">a6944d57e9mshc8c9235b339cbefp1c77abjsn8c3215551da3</string>
-    <string name="apiKey">97d541bfc7msh5d89673da1900c1p16fc83jsn6280aae14c4b</string>
-    <!--        <string name="apiKey2">37c6e5cca6msh60a9a2752d57f87p107407jsn6b7549f1cc88</string>-->
-    <!--        <string name="apiKey2">37c6e5cca6msh60a9a2752d57f87p107407jsn6b7549f1cc88</string>-->
-    <!--    <string name="apiKey">264f8e8760msh1272ebb011e2b11p10e4c0jsn074a1c3f339a</string>-->
-    <!--    <string name="apiKey2">60ad43d8b3mshcd41396c2221325p10e71fjsn3d2f38f2f386</string>-->
+    <!--    <string name="apiKey2">a6944d57e9mshc8c9235b339cbefp1c77abjsn8c3215551da3</string>-->
+    <!--    <string name="apiKey">97d541bfc7msh5d89673da1900c1p16fc83jsn6280aae14c4b</string>-->
+<!--    <string name="apiKey">37c6e5cca6msh60a9a2752d57f87p107407jsn6b7549f1cc88</string>-->
+<!--    <string name="apiKey2">37c6e5cca6msh60a9a2752d57f87p107407jsn6b7549f1cc88</string>-->
+        <string name="apiKey">264f8e8760msh1272ebb011e2b11p10e4c0jsn074a1c3f339a</string>
+        <string name="apiKey2">60ad43d8b3mshcd41396c2221325p10e71fjsn3d2f38f2f386</string>
 
     <!--    ApiKeys End    -->
 
@@ -118,8 +118,10 @@
     <attr name="row_even" format="reference|color" />
     <attr name="row_odd" format="reference|color" />
     <attr name="main_white" format="reference|color" />
+    <attr name="white_main" format="reference|color" />
     <attr name="rate" format="reference|color" />
     <attr name="rateus_bg" format="reference|color" />
+    <attr name="feedback" format="reference|color" />
 
 
     <string name="team_1">Team 1</string>

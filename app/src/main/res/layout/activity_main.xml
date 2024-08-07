@@ -57,6 +57,7 @@
                 app:tabSelectedTextColor="?attr/tabSelectedTextColor"
                 app:tabIndicatorHeight="0dp"
                 app:tabTextColor="@color/black">
+
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -66,7 +67,9 @@
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
+
             </com.google.android.material.tabs.TabLayout>
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -126,7 +129,7 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginTop="20dp"
-                        android:src="@drawable/avtar" />
+                        android:src="@drawable/avatar" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -139,7 +142,7 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:id="@+id/nav_item_calendar"
+                        android:id="@+id/home"
                         android:background="@drawable/nav_item_background"
                         android:padding="20dp"
                         android:layout_width="wrap_content"
@@ -148,25 +151,18 @@
                         android:src="?attr/home" />
 
                     <ImageView
-                        android:id="@+id/nav_item_location"
+                        android:id="@+id/aboutUs"
                         android:background="@drawable/nav_item_background"
-                        android:paddingLeft="25dp"
-                        android:paddingTop="10dp"
-                        android:paddingRight="25dp"
-                        android:paddingBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:src="?attr/aboutUs"/>
 
-                    <ImageView
-                        android:id="@+id/nav_item_settings"
-                        android:background="@drawable/nav_item_background"
-                        android:padding="20dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:src="?attr/setting" />
+
 
                     <ImageView
                         android:id="@+id/nav_item_rate_us"
@@ -176,6 +172,19 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
                         android:src="?attr/rate" />
+
+                    <ImageView
+                        android:id="@+id/feedBack"
+                        android:background="@drawable/nav_item_background"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:src="?attr/feedback" />
+
                 </LinearLayout>
 
                 <LinearLayout

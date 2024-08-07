@@ -14,10 +14,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import java.io.ByteArrayOutputStream
 
-class Adapter_news(
+class AdapterNews(
     private var context: Context,
-    private var storyListData: List<Data_news>
-) : RecyclerView.Adapter<Adapter_news.ViewHolder>() {
+    private var storyListData: List<DataNews>
+) : RecyclerView.Adapter<AdapterNews.ViewHolder>() {
 
     private var lastPosition = -1
 

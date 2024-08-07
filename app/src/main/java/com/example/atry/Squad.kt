@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -40,18 +41,31 @@ class Squad : Fragment() {
         Log.d("seriesId", "seriesId value is $seriesId")
         Log.d("matchId", "matchId value is $matchId")
 
+
+
         val url = "https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/$matchId"
         progressBar.visibility = View.VISIBLE
         view.findViewById<TextView>(R.id.squadNot).visibility = View.GONE
         view.findViewById<ConstraintLayout>(R.id.squadmain).visibility = View.GONE
+        val state = arguments?.getString("state")
+        val not_available = view.findViewById<ImageView>(R.id.not_available)
 
-        val team1Score = bundle?.getString("team1Score")
-        if (team1Score == "null") {
+        if (state == "") {
             progressBar.visibility = View.GONE
-        } else {
-            val requestQueue = Volley.newRequestQueue(requireContext())
-            fetchSquadData(requestQueue, url, apiKey, progressBar, view, team1img, team2img, rec)
+            not_available.visibility = View.VISIBLE
+
         }
+        else{
+            val team1Score = bundle?.getString("team1Score")
+            if (team1Score == "null") {
+                progressBar.visibility = View.GONE
+            } else {
+                val requestQueue = Volley.newRequestQueue(requireContext())
+                fetchSquadData(requestQueue, url, apiKey, progressBar, view, team1img, team2img, rec)
+            }
+        }
+
+
         return view
     }
 
@@ -101,7 +115,7 @@ class Squad : Fragment() {
 
         Log.d("hummai", "$flattenedData")
 
-        val adapter = Adapter_squad(requireContext(), flattenedData)
+        val adapter = AdapterSquad(requireContext(), flattenedData)
         rec.layoutManager = LinearLayoutManager(requireContext())
         rec.adapter = adapter
     }

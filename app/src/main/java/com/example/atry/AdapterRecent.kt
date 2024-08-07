@@ -1,23 +1,21 @@
 package com.example.atry
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
 import androidx.core.app.NotificationCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.atry.Match
 
-class Adapter_wc2( private val context: Context, private val matchs: List<Data_match>): RecyclerView.Adapter<Adapter_wc2.ViewHolder>() {
+class AdapterRecent(private val context: Context, private val matchs: List<DataMatch>): RecyclerView.Adapter<AdapterRecent.ViewHolder>() {
 
     private var lastPosition = -1
 
@@ -26,6 +24,7 @@ class Adapter_wc2( private val context: Context, private val matchs: List<Data_m
         return ViewHolder(view)
     }
 
+    @SuppressLint("SetTextI18n", "DiscouragedApi")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val match = matchs[position]
         holder.apply {

@@ -9,10 +9,10 @@ import android.widget.TableRow
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class Adapter_pt(
+class AdapterPt(
     private val context: Context,
     private val flattenedData: List<FlattenedData>
-) : RecyclerView.Adapter<Adapter_pt.ViewHolder>() {
+) : RecyclerView.Adapter<AdapterPt.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.row_pt, parent, false)

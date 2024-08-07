@@ -1,5 +1,6 @@
 package com.example.atry
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -13,16 +14,17 @@ import androidx.core.app.NotificationCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class Adapter_upcoming(
+class AdapterUpcoming(
     private val context: Context,
-    private val list: List<Data_upcoming>
-) : RecyclerView.Adapter<Adapter_upcoming.ViewHolder>() {
+    private val list: List<DataUpcoming>
+) : RecyclerView.Adapter<AdapterUpcoming.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.row_wc, parent, false)
         return ViewHolder(view)
     }
 
+    @SuppressLint("SetTextI18n", "DiscouragedApi")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = list[position]
         holder.team1.text = item.team1Short

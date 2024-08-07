@@ -1,23 +1,24 @@
 package com.example.atry
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
 
-class Adapter_squad(private var context: Context, private var playerList: List<DataSquad>) : RecyclerView.Adapter<Adapter_squad.ViewHolder>() {
+class AdapterSquad(private var context: Context, private var playerList: List<DataSquad>) : RecyclerView.Adapter<AdapterSquad.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.row_squad, parent, false)
         return ViewHolder(view)
     }
 
+    @SuppressLint("DiscouragedApi")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var currentPos = position
         for (item in playerList) {
@@ -30,8 +31,11 @@ class Adapter_squad(private var context: Context, private var playerList: List<D
                     holder.line2.visibility = View.VISIBLE
                     holder.teamName.text = item.teamName
                     holder.teamImg.visibility = View.VISIBLE
-                    val teamImgUrl = item.team1Img ?: item.team2Img
-                    Glide.with(context).load(teamImgUrl).into(holder.teamImg)
+                    val teamImgName = item.teamName?.replace("Women", "")?.replace(" ", "")
+                    val teamImgId = context.resources.getIdentifier(teamImgName, "string", context.packageName)
+                    val teamImg = if (teamImgId != 0) context.getString(teamImgId) else ""
+
+                    Glide.with(context).load(teamImg).into(holder.teamImg)
                     return
                 }
                 currentPos--

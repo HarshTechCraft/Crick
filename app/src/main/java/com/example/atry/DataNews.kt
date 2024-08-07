@@ -2,7 +2,7 @@ package com.example.atry
 
 import android.graphics.Bitmap
 
-data class Data_news(
+data class DataNews(
     val newsId: Int,
     val hline: String,
     val intro: String,

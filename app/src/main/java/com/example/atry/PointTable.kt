@@ -94,7 +94,7 @@ class PointTable : Fragment() {
             }
         }
 
-        val adapter = Adapter_pt(requireContext(), flattenedData)
+        val adapter = AdapterPt(requireContext(), flattenedData)
         rec.layoutManager = LinearLayoutManager(requireContext())
         rec.adapter = adapter
     }

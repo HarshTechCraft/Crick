@@ -26,13 +26,7 @@
         android:progressTint="#F2CB36"
         android:stepSize="1.0"/>
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/emoji"
-        android:visibility="gone"
-        android:layout_gravity="center"
-        />
+
 
     <LinearLayout
         android:layout_width="match_parent"

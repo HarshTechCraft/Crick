@@ -21,9 +21,9 @@ import org.json.JSONException
 import org.json.JSONObject
 
 class News : Fragment() {
-    lateinit var storyAdapter: Adapter_news
+    lateinit var storyAdapter: AdapterNews
     lateinit var progressBar: ProgressBar
-    private val storyListData = ArrayList<Data_news>()
+    private val storyListData = ArrayList<DataNews>()
     private var volley: RequestQueue? = null
     private var pendingRequests = 0
 
@@ -39,7 +39,7 @@ class News : Fragment() {
         val apiKey = requireContext().getString(R.string.apiKey)
 
         rec.layoutManager = LinearLayoutManager(requireContext())
-        storyAdapter = Adapter_news(requireContext(), storyListData)
+        storyAdapter = AdapterNews(requireContext(), storyListData)
         rec.adapter = storyAdapter
 
         val jsonObjectRequest = object : JsonObjectRequest(Method.GET, url, null,
@@ -68,7 +68,7 @@ class News : Fragment() {
                     val newsId = story.getInt("id")
                     val intro = story.getString("intro")
                     val imageId = story.getString("imageId")
-                    val newStory = Data_news(newsId, hline, intro, imageId, null)
+                    val newStory = DataNews(newsId, hline, intro, imageId, null)
                     storyListData.add(newStory)
                     pendingRequests++
                     fetchImage(newStory, i)
@@ -87,14 +87,14 @@ class News : Fragment() {
         progressBar.visibility = View.GONE
     }
 
-    private fun fetchImage(story: Data_news, position: Int) {
+    private fun fetchImage(story: DataNews, position: Int) {
         val apiKey2 = requireContext().getString(R.string.apiKey2)
         val imageUrl = "https://cricbuzz-cricket.p.rapidapi.com/img/v1/i1/c${story.imageId}/i.jpg?p=det&d=high"
         val imageRequest = createImageRequest(story, position, imageUrl, apiKey2)
         volley?.add(imageRequest)
     }
 
-    private fun createImageRequest(story: Data_news, position: Int, imageUrl: String, apiKey: String): ImageRequest {
+    private fun createImageRequest(story: DataNews, position: Int, imageUrl: String, apiKey: String): ImageRequest {
         return object : ImageRequest(imageUrl,
             { response -> handleImageResponse(story, position, response) },
             0, 0, ImageView.ScaleType.CENTER_CROP, Bitmap.Config.ARGB_8888,
@@ -108,13 +108,13 @@ class News : Fragment() {
         }
     }
 
-    private fun handleImageResponse(story: Data_news, position: Int, response: Bitmap) {
+    private fun handleImageResponse(story: DataNews, position: Int, response: Bitmap) {
         story.image = response
         pendingRequests--
         checkIfAllRequestsCompleted()
     }
 
-    private fun handleImageError(story: Data_news, position: Int, imageUrl: String, apiKey: String, error: VolleyError) {
+    private fun handleImageError(story: DataNews, position: Int, imageUrl: String, apiKey: String, error: VolleyError) {
         val networkResponse = error.networkResponse
         if (networkResponse == null || networkResponse.statusCode != 429) {
             Log.d("qwert", "Volley error: ${error.message}")

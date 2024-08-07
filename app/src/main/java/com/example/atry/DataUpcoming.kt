@@ -1,6 +1,6 @@
 package com.example.atry
 
-data class Data_upcoming(
+data class DataUpcoming(
     val matchId: Int,
     val seriesId: Int,
     val matchDesc: String,

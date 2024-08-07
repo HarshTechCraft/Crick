@@ -1,6 +1,6 @@
 package com.example.atry
 
-data class Data_match(
+data class DataMatch(
     val matchId: String,
     val team1: String,
     val team2: String,

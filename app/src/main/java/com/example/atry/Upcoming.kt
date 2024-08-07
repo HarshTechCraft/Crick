@@ -1,6 +1,5 @@
 package com.example.atry
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,13 +10,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.android.volley.NetworkResponse
-import com.android.volley.RequestQueue
-import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -35,7 +30,6 @@ class Upcoming : Fragment() {
             { response ->
                 handleResponse(rec, response)
                 progressBar.visibility = View.GONE
-
             },
             { error ->
                 handleVolleyError(error)
@@ -57,7 +51,7 @@ class Upcoming : Fragment() {
     private fun handleResponse(rec: RecyclerView?, response: JSONObject?) {
         try {
             val matchScheduleMaps = response?.getJSONArray("matchScheduleMap")
-            val list = ArrayList<Data_upcoming>()
+            val list = ArrayList<DataUpcoming>()
 
             if (matchScheduleMaps != null) {
                 for (i in 0 until matchScheduleMaps.length()) {
@@ -91,7 +85,7 @@ class Upcoming : Fragment() {
                                 val city = venueInfo.getString("city")
                                 val country = venueInfo.getString("country")
 
-                                val data = Data_upcoming(
+                                val data = DataUpcoming(
                                     matchId, seriesId, matchDesc, matchFormat, team1Name, team2Name,
                                     team1Short, team2Short, team1Img, team2Img, ground, city, country,
                                     date, seriesName
@@ -104,7 +98,7 @@ class Upcoming : Fragment() {
             }
 
 
-            val adapter = Adapter_upcoming(requireContext(), list)
+            val adapter = AdapterUpcoming(requireContext(), list)
             if (rec != null) {
                 rec.layoutManager = LinearLayoutManager(requireContext())
                 rec.adapter = adapter

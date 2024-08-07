@@ -1,5 +1,6 @@
 package com.example.atry
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
@@ -18,14 +19,13 @@ class Match : AppCompatActivity() {
     lateinit var toolbar: Toolbar
 
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_match)
 
         val toolbarTitle = findViewById<TextView>(R.id.toolbar_title)
         val matchId = intent.getStringExtra("matchId").orEmpty()
-        val team1 = intent.getStringExtra("team1").orEmpty()
-        val team2 = intent.getStringExtra("team2").orEmpty()
         val team1img = intent.getStringExtra("team1img").orEmpty()
         val team2img = intent.getStringExtra("team2img").orEmpty()
         val date = intent.getStringExtra("date").orEmpty()
@@ -54,7 +54,7 @@ class Match : AppCompatActivity() {
         )
 
         val containsTour = matchType.contains("tour", ignoreCase = true)
-        Log.d("table","$containsTour $matchType")
+        Log.d("table","$containsTour $matchId")
 
         if(!containsTour) {
             TabLayoutMediator(tabLayout, viewPager) { tab, position ->

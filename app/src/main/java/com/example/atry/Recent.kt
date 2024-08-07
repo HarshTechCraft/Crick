@@ -17,7 +17,7 @@ import org.json.JSONException
 import org.json.JSONObject
 
 
-class Wct20 : Fragment() {
+class Recent : Fragment() {
 
 
 
@@ -49,14 +49,13 @@ class Wct20 : Fragment() {
             }
         }
         val volley = Volley.newRequestQueue(requireContext())
-//        jsonObjectRequest.setShouldCache(false)
         volley.add(jsonObjectRequest)
         return view
     }
 
     private fun handleResponse(rec: RecyclerView, response: JSONObject) {
         try {
-            val allMatches = mutableListOf<Data_match>()
+            val allMatches = mutableListOf<DataMatch>()
             val matchDetails = response.getJSONArray("typeMatches")
 
             for (i in 0 until matchDetails.length()) {
@@ -105,7 +104,7 @@ class Wct20 : Fragment() {
                                 team2Score = "$team2ScoreRuns/$team2ScoreWickets"
                             }
 
-                            val matchData = Data_match(
+                            val matchData = DataMatch(
                                 matchId, team1, team2, formattedMatchType, "", 0, venue, status,
                                 team1Short, team2Short, seriesId, state, team1Score, team2Score,
                                 inngs1Over, inngs2Over
@@ -115,7 +114,7 @@ class Wct20 : Fragment() {
                     }
                 }
             }
-            val adapter = Adapter_wc2(requireContext(), allMatches)
+            val adapter = AdapterRecent(requireContext(), allMatches)
             rec.layoutManager = LinearLayoutManager(requireContext())
             rec.adapter = adapter
         } catch (e: JSONException) {

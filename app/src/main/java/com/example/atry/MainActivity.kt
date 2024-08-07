@@ -2,10 +2,11 @@ package com.example.atry
 
 import android.animation.Animator
 import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -29,50 +30,98 @@ import com.google.android.material.tabs.TabLayoutMediator
 import eightbitlab.com.blurview.BlurView
 import eightbitlab.com.blurview.RenderScriptBlur
 
-
-class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navigationView: NavigationView
     private lateinit var toolbar: Toolbar
-    private lateinit var toggle: ActionBarDrawerToggle // Declare toggle as a class member
+    private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var blurView: BlurView
-
+    private val REQUEST_CODE_AVATAR_SELECTION = 1
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
+
+        val sharedPref = getSharedPreferences("UserPreferences", Context.MODE_PRIVATE)
+        val themeMode = sharedPref.getInt("theme", AppCompatDelegate.MODE_NIGHT_NO)
+        AppCompatDelegate.setDefaultNightMode(themeMode)
+
+
+
+
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
 
-        // Initialize DrawerLayout and NavigationView
+
         drawerLayout = findViewById(R.id.drawer_layout)
         navigationView = findViewById(R.id.navigation_view)
-
-        // Initialize Toolbar
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        // Setup the DrawerToggle
-//        toggle = ActionBarDrawerToggle(
-//            this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
-//        )
-//        drawerLayout.addDrawerListener(toggle)
-//        toggle.syncState()
         drawerSetUp()
-
-        // Set up TabLayout and ViewPager
         tabLayoutSetUp()
         themeToggle()
 
-        // Set toolbar title
         val toolbarTitle = findViewById<TextView>(R.id.toolbar_title)
         toolbarTitle.text = "CrickLive"
 
-        val nav_item_rate_us = findViewById<ImageView>(R.id.nav_item_rate_us)
-        nav_item_rate_us.setOnClickListener(){
+        val navItemRateUs = findViewById<ImageView>(R.id.nav_item_rate_us)
+        navItemRateUs.setOnClickListener {
+            val navLinearLayout: LinearLayout = findViewById(R.id.nav_linear_layout)
+            selectNavItem(navItemRateUs, navLinearLayout)
             showRateUsDialog()
         }
 
+        val aboutus  = findViewById<ImageView>(R.id.aboutUs)
+        aboutus.setOnClickListener{
+            val navLinearLayout: LinearLayout = findViewById(R.id.nav_linear_layout)
+            selectNavItem(aboutus, navLinearLayout)
+            val intent = Intent(this, AboutUs::class.java)
+            startActivity(intent)
+        }
+        val feedback  = findViewById<ImageView>(R.id.feedBack)
+        feedback.setOnClickListener{
+            val navLinearLayout: LinearLayout = findViewById(R.id.nav_linear_layout)
+            selectNavItem(feedback, navLinearLayout)
+                    val intent = Intent(this, FeedBack::class.java)
+                    startActivity(intent)
+        }
 
+        val home  = findViewById<ImageView>(R.id.home)
+        home.setOnClickListener{
+            val navLinearLayout: LinearLayout = findViewById(R.id.nav_linear_layout)
+            selectNavItem(home, navLinearLayout)
+            closeDrawer()
+        }
+
+
+
+
+        val profile = findViewById<ImageView>(R.id.profile_image)
+        profile.setOnClickListener {
+            val intent = Intent(this, AvatarSelection::class.java)
+            startActivityForResult(intent, REQUEST_CODE_AVATAR_SELECTION)
+        }
+
+        updateProfileImage()
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_AVATAR_SELECTION && resultCode == RESULT_OK) {
+            updateProfileImage()
+        }
+    }
+
+    private fun updateProfileImage() {
+        val sharedPref = getSharedPreferences("UserPreferences", Context.MODE_PRIVATE)
+        val selectedAvatarResId = sharedPref.getInt("selectedAvatarResId", R.drawable.avatar)
+        val profile = findViewById<ImageView>(R.id.profile_image)
+        profile.setImageResource(selectedAvatarResId)
     }
 
     private fun tabLayoutSetUp() {
@@ -181,17 +230,24 @@ class MainActivity : AppCompatActivity(){
     }
 
     private fun toggleTheme() {
+        val sharedPref = getSharedPreferences("UserPreferences", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+
         val currentNightMode = resources.configuration.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK
         when (currentNightMode) {
             android.content.res.Configuration.UI_MODE_NIGHT_NO -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                editor.putInt("theme", AppCompatDelegate.MODE_NIGHT_YES)
             }
             android.content.res.Configuration.UI_MODE_NIGHT_YES -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                editor.putInt("theme", AppCompatDelegate.MODE_NIGHT_NO)
             }
         }
+        editor.apply()
         recreate()
     }
+
 
     private fun closeDrawer() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -203,71 +259,40 @@ class MainActivity : AppCompatActivity(){
         val dialogView = LayoutInflater.from(this).inflate(R.layout.rate_us_dialog, null)
         val ratingBar: RatingBar = dialogView.findViewById(R.id.rating_bar)
         val submitButton: Button = dialogView.findViewById(R.id.submit_button)
-        val emoji: ImageView = dialogView.findViewById(R.id.emoji)
-        emoji.visibility = View.GONE
-        val current: Float = ratingBar.getRating()
+        val dismissButton: Button = dialogView.findViewById(R.id.dismiss_button)
+
+        val current: Float = ratingBar.rating
 
         val anim = ObjectAnimator.ofFloat(ratingBar, "rating", current, 5f)
-        anim.setDuration(1000)
+        anim.duration = 1000
         anim.addListener(object : Animator.AnimatorListener {
-            override fun onAnimationStart(animation: Animator) {
-
-            }
+            override fun onAnimationStart(animation: Animator) {}
 
             override fun onAnimationEnd(animation: Animator) {
-                ratingBar.rating = 0f // Reset the rating to 1
-
+                ratingBar.rating = 0f
             }
 
-            override fun onAnimationCancel(animation: Animator) {
-                // No action needed here
-            }
+            override fun onAnimationCancel(animation: Animator) {}
 
-            override fun onAnimationRepeat(animation: Animator) {
-                // No action needed here
-            }
+            override fun onAnimationRepeat(animation: Animator) {}
         })
 
         anim.start()
-
 
         val dialog = AlertDialog.Builder(this)
             .setView(dialogView)
             .create()
 
-        Handler(Looper.getMainLooper()).postDelayed({
-
-            ratingBar.rating = 0f
-
-            ratingBar.setOnRatingBarChangeListener { _, rating, _ ->
-                val emojiRes = when (rating.toInt()) {
-                    1 -> R.drawable.star1
-                    2 -> R.drawable.star2
-                    3 -> R.drawable.star3
-                    4 -> R.drawable.star4
-                    5 -> R.drawable.star5
-                    else -> null
-                }
-                if (emojiRes != null) {
-                    emoji.visibility = View.VISIBLE
-                    emoji.setImageResource(emojiRes)
-                } else {
-                    emoji.visibility = View.GONE
-                }
-
-            }
-        }, 2000)
-
 
 
         submitButton.setOnClickListener {
-            val rating = ratingBar.rating
-            // Handle the rating and feedback submission, e.g., save to database or send to server
+            dialog.dismiss()
+        }
+
+        dismissButton.setOnClickListener {
             dialog.dismiss()
         }
 
         dialog.show()
     }
-
-
 }

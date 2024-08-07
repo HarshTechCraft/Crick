@@ -26,16 +26,11 @@
         <item name="row_odd">@color/white</item>
         <item name="gradient">@drawable/gradient</item>
         <item name="main_white">@color/main</item>
+        <item name="white_main">@color/white</item>
         <item name="rate">@drawable/rate_light</item>
         <item name="rateus_bg">@drawable/rateus_bg</item>
-
-
-
+        <item name="feedback">@drawable/feedback_dark</item>
         <item name="android:textColor">@color/black</item>
-
-
-
-
 
     </style>
 
@@ -43,11 +38,17 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-
     <style name="Theme.Try" parent="Base.Theme.Try" />
 
     <style name="CustomTabTextAppearance" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">15sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/main</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo_gif</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.Try</item>
+    </style>
+
 </resources>
